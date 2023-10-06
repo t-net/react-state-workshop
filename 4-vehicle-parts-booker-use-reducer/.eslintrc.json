@@ -1,0 +1,95 @@
+{
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint-config-airbnb"
+  ],
+  "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "off",
+      {
+        "devDependencies": [
+          "test-setup.js",
+          "**/*.test.ts",
+          "**/*.test.tsx"
+        ]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          [
+            "builtin"
+          ],
+          [
+            "external"
+          ],
+          [
+            "parent",
+            "internal",
+            "sibling",
+            "index",
+            "unknown"
+          ]
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "import/no-unresolved": "off",
+    "react/require-default-props": "off",
+    "quotes": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "arrow-parens": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off",
+    "operator-linebreak": "off",
+    "no-underscore-dangle": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "object-curly-newline": "off",
+    "import/extensions": "off",
+    "no-confusing-arrow": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-curly-newline": "off",
+    "no-shadow": "off",
+    "no-nested-ternary": "off",
+    "indent": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.ts",
+        "**/*.test.tsx"
+      ],
+      "rules": {
+        "max-classes-per-file": "off"
+      }
+    }
+  ]
+}

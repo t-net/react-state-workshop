@@ -5,6 +5,7 @@
   "scripts": {
     "build": "for file in *-vehicle-parts-booker*; do\ncd $file && npm run build && cd ..\ndone",
     "test": "for file in *-vehicle-parts-booker*; do\ncd $file && npm run test && cd ..\ndone",
-    "lint": "for file in *-vehicle-parts-booker*; do\ncd $file && npm run lint && cd ..\ndone"
+    "lint": "for file in *-vehicle-parts-booker*; do\ncd $file && npm run lint && cd ..\ndone",
+    "parse": "for file in *-vehicle-parts-booker*; do\ncd $file && npx tsc --noEmit && cd ..\ndone"
   }
 }
