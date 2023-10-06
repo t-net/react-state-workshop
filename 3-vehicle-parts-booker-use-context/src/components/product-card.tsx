@@ -15,7 +15,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   const { addToCart } = useCartContext();
   const [count, setCount] = useState(1);
 
-  const onMinus = () => setCount((prevCount) => Math.max(0, prevCount - 1));
+  const onMinus = () => setCount((prevCount) => Math.max(1, prevCount - 1));
   const onPlus = () => setCount((prevCount) => prevCount + 1);
 
   return (
@@ -31,7 +31,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             type="button"
             title={`Add less ${product.name}`}
             onClick={onMinus}
-            disabled={count === 0}
+            disabled={count <= 1}
           >
             <GroupuiIcon name="minus-24" />
           </GroupuiButton>
