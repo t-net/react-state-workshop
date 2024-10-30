@@ -5,12 +5,13 @@ import Container from "@/components/styled/container";
 import Flexbox from "@/components/styled/flexbox";
 import { BlueHeadline } from "@/components/styled/blue-text";
 
-// replace these with the items from the state
-const cartItems: CartItem[] = [];
+const Cart = () => {
+  // replace these with the items from the state
+  const cartItems: CartItem[] = [];
 
-const Cart = () => (
-  <div data-testid="cart">
-    {!cartItems.length
+  return (
+    <div data-testid="cart">
+      {!cartItems.length
       ? (
         <Container $minWidth="300px" $paddingX={6} $paddingY={4}>
           <GroupuiText size="body-2">No items have been added to your cart</GroupuiText>
@@ -36,6 +37,7 @@ const Cart = () => (
           ))}
         </>
       )}
-  </div>
-);
+    </div>
+  );
+};
 export default Cart;
