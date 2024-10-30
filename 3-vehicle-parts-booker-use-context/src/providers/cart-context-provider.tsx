@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import Product from "@/types/product";
 import CartItem from "@/types/cart-item";
 
@@ -15,7 +15,7 @@ export const CartContext = React.createContext<CartContextType>({
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  const addToCart = (product: Product, quantity: number) => setCartItems((prevCartItems) => {
+  const addToCart = useCallback((product: Product, quantity: number) => setCartItems((prevCartItems) => {
     const existingIndex = prevCartItems.findIndex(item => item.product.id === product.id);
     if (existingIndex === -1) {
       const cartItem: CartItem = {
@@ -32,14 +32,14 @@ const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     return cartItems;
-  });
+  }), []);
 
   const contextValue: CartContextType = useMemo(
     () => ({
       cartItems,
       addToCart,
     }),
-    [cartItems],
+    [cartItems, addToCart],
   );
 
   return <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>;
